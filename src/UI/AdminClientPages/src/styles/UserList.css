@@ -1,0 +1,25 @@
+
+
+.userList-title
+{
+    font-size: 1.5em;
+    text-align: center;
+}
+.lgi
+{
+    background-color: var(--sidebar-bg); 
+    color: var(--text-color);
+    border: 1px solid white;               
+    
+    padding: 0.6em;          
+
+    transition: 0.25s ease-in;
+    margin-bottom: 0.9em;        
+    border-radius: 8px;         
+}
+.lgi:hover
+{
+    background-color: var(--card-bg);  
+    color: #ff3c00;             
+    transform: scale(1.02);   
+}

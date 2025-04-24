@@ -1,0 +1,418 @@
+@font-face {
+    font-family: "JetBrains Mono";
+    font-style: normal;
+    font-weight: 100;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/jetbrainsmono/v20/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yK1TPlOVgaY.woff2)
+        format("woff2");
+}
+
+/* Universal Settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "JetBrains Mono", monospace;
+}
+
+/* Full-Screen Terminal */
+body {
+    background: #0a0a0a; /* Dark background */
+    color: #00ffcc; /* Neon cyan text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 60%;
+    max-height: 90vp;
+}
+
+.toggle-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    background: transparent;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #009977;
+    color: white;
+}
+
+.light-mode {
+    background: #f0f0f0;
+    color: black;
+}
+
+.light-mode .terminal {
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.separator {
+    height: 10vh;
+}
+
+.sign-in-title {
+    position: absolute;
+    top: 85px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.8);
+    text-align: center;
+}
+
+/* Terminal Container */
+
+.terminal {
+    width: 100%;
+    max-width: 100%;
+    height: auto; /* Fixed height */
+
+    background: rgba(
+        20,
+        20,
+        20,
+        0.6
+    ); /* Slightly transparent dark background */
+    border-radius: 10px;
+    padding: 20px;
+    position: relative; /* Keep it in place */
+    z-index: 2;
+    border: 1px solid rgba(0, 255, 204, 0.2); /* Neon cyan border */
+    box-shadow: 0 0 30px rgba(0, 255, 204, 0.3); /* Neon glow */
+}
+
+/* Terminal Header */
+.terminal-header {
+    padding: 10px;
+    background: rgba(30, 30, 30, 0.9); /* Dark header */
+    color: #00ffcc; /* Neon cyan text */
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+    margin: 0; /* Remove negative margin to avoid shifting */
+    border-bottom: 1px solid rgba(0, 255, 204, 0.2); /* Neon cyan border */
+    display: flex;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 3; /* Ensure it's above scrolling content */
+}
+
+/* Ensure the terminal-body has enough space */
+.terminal-body {
+    padding: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+    /* min-height: 250px; Ensure minimum height */
+    max-height: 400px; /* Adjust based on your needs */
+    overflow-y: auto; /* Scroll within the terminal */
+    position: relative;
+}
+
+.terminal-body::-webkit-scrollbar {
+    display: none;
+}
+
+#terminal-input {
+    position: absolute;
+    margin: -20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 6px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.button {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    display: inline-block;
+    padding: 1px;
+}
+
+.button.close {
+    background: #ff5f56;
+}
+.button.minimize {
+    background: #ffbd2e;
+}
+.button.maximize {
+    background: #27c93f;
+}
+
+.title {
+    margin-left: 20px;
+}
+/* Command Prompt */
+.prompt {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-top: 10px;
+    color: #00ffcc; /* Neon cyan text */
+}
+/* Improve the command display */
+#command {
+    padding-left: 9px;
+    color: #00ffcc; /* Neon cyan text */
+    display: inline-block;
+    min-height: 1em; /* Ensure it has height even when empty */
+}
+
+/* Blinking Cursor */
+.cursor {
+    display: inline-block;
+    background: #00ffcc; /* Neon cyan cursor */
+    width: 10px;
+    height: 20px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+#terminal-input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    z-index: -1; /* Ensure it's not blocking anything */
+}
+
+/* Output Text */
+#output {
+    white-space: pre-wrap;
+    font-size: 16px;
+    color: #00ffcc; /* Neon cyan text */
+    margin-bottom: 10px;
+    overflow-anchor: auto;
+}
+
+/* Glow Effect on Terminal */
+.terminal::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(0, 255, 204, 0.5); /* Neon cyan glow */
+    opacity: 0.5;
+    z-index: -1;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+/* Background Animation */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle,
+        rgba(0, 255, 204, 0.1) 10%,
+        transparent 20%
+    );
+    animation: lights 5s infinite;
+    z-index: -2;
+}
+
+@keyframes lights {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Position the Sign Up link at the bottom-right of the terminal */
+
+.sign-up-container {
+    display: flex;
+    width: auto;
+}
+
+.sign-up-link {
+    position: relative;
+    top: 15px;
+    left: 10px;
+    align-self: flex-end;
+    color: #00ffcc;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.sign-up-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Button Container */
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+/* Buttons */
+.btn {
+    background: #00ffcc;
+    color: black;
+    font-family: "JetBrains Mono", monospace;
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.2s;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.6);
+}
+
+.btn:hover {
+    background: #008080;
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+/* Individual Button Colors */
+.sign-up {
+    background: #ff5f56;
+    box-shadow: 0 0 10px rgba(255, 95, 86, 0.6);
+}
+
+.sign-up:hover {
+    background: #cc4c42;
+}
+
+.continue {
+    background: #27c93f;
+    box-shadow: 0 0 10px rgba(39, 201, 63, 0.6);
+}
+
+.continue:hover {
+    background: #1d9a30;
+}
+
+/* Light Mode */
+.light-mode {
+    background: #e3f2fd; /* Soft bluish tint */
+    color: #222; /* Dark text */
+}
+
+/* Light Mode Terminal */
+.light-mode .terminal {
+    background: rgba(255, 255, 255, 0.95);
+    color: #222;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Light Mode Header */
+.light-mode .terminal-header {
+    background: rgba(200, 230, 255, 0.9); /* Soft pastel blue */
+    color: #00509e; /* Deep blue */
+    border-bottom: 2px solid #00509e;
+}
+
+/* Light Mode Buttons */
+.light-mode button {
+    background: #ff4081; /* Vibrant pink */
+    color: white;
+    border: none;
+}
+
+.light-mode button:hover {
+    background: #e6005c;
+}
+
+/* Light Mode Text Effects */
+.light-mode .sign-in-title {
+    color: #ff4081;
+    text-shadow: 0 0 8px rgba(255, 64, 129, 0.6);
+}
+
+/* Light Mode Accent Colors */
+.light-mode .prompt {
+    color: #00796b; /* Teal */
+}
+
+.light-mode #command {
+    color: #ff9800; /* Vibrant orange */
+}
+
+/* Light Mode Blinking Cursor */
+.light-mode .cursor {
+    background: #ff4081; /* Bright pink cursor */
+}
+
+/* Light Mode Buttons with Vibrant Colors */
+.light-mode .sign-up {
+    background: #ff4081;
+    box-shadow: 0 0 10px rgba(255, 64, 129, 0.6);
+}
+
+.light-mode .continue {
+    background: #ff9800;
+    box-shadow: 0 0 10px rgba(255, 152, 0, 0.6);
+}
+
+.light-mode .continue:hover {
+    background: #e68a00;
+}

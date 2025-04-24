@@ -1,0 +1,189 @@
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 100;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/jetbrainsmono/v20/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yK1TPlOVgaY.woff2) format('woff2');
+    
+  }
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "JetBrains Mono", monospace;
+}
+
+/* Body Styling */
+body {
+    background: #111;
+    color: #00ffcc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    
+}
+
+/* Light/Dark Mode Toggle (Positioned at Top-Right) */
+.toggle-container {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+#mode-toggle {
+    background: #222;
+    color: #00ffcc;
+    border: 1px solid #00ffcc;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+#mode-toggle:hover {
+    background: #00ffcc;
+    color: #111;
+}
+
+/* Sign-Up Title - Aligned Left with Glow */
+.sign-up-title {
+    position: absolute;
+    top:30px;
+    left: 450px;
+    
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #00ffcc;
+    text-align: left;
+    width: 100%;
+    text-shadow: 0px 0px 10px rgba(0, 255, 204, 0.8);
+}
+
+/* Main Container */
+.container {
+    width: 400px;
+}
+
+/* Terminal Box */
+.terminal {
+    background: #222;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 255, 204, 0.3);
+    padding: 20px;
+    position: relative;
+}
+
+/* Terminal Header */
+.terminal-header {
+    padding: 10px;
+    background: rgba(30, 30, 30, 0.9);
+    color: #00ffcc;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid rgba(0, 255, 204, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Terminal Body */
+.terminal-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Terminal Buttons */
+.buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.close {
+    background: #ff5f56;
+}
+
+.minimize {
+    background: #ffbd2e;
+}
+
+.maximize {
+    background: #27c93f;
+}
+
+/* Form Styling */
+#signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-size: 14px;
+    color: #0f0;
+}
+
+/* Input Fields */
+input {
+    background: #111;
+    border: 1px solid #0f0;
+    padding: 10px;
+    color: #0f0;
+    border-radius: 5px;
+    width: 100%;
+    outline: none;
+}
+
+/* Sign Up Button */
+.btn.continue {
+    background: #0f0;
+    color: #111;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn.continue:hover {
+    background: #00cc99;
+}
+
+/* Back to Sign In Link */
+.sign-in-container {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.sign-in-link {
+    color: #00ffcc;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.sign-in-link:hover {
+    text-decoration: underline;
+}
+
+/* Separator */
+.separator {
+    height: 1px;
+    background: rgba(0, 255, 204, 0.3);
+    margin: 10px 0;
+}

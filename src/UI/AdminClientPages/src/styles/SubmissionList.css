@@ -1,0 +1,33 @@
+.submissionList-title {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.submission-item {
+    background-color: var(--sidebar-bg); 
+    color: var(--text-color);
+    border: 1px solid white;                
+
+    padding: 0.6em;          
+    transition: 0.25s ease-in;
+    margin-bottom: 0.9em;        
+    border-radius: 8px;         
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.submission-item:hover {
+    background-color: var(--card-bg);  
+    color: #ff3c00;             
+    transform: scale(1.02);   
+}
+
+.submission-problem {
+    font-weight: bold;
+}
+
+.submission-user {
+    font-style: italic;
+    color: #a0a0a0;
+}

@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main Layout */
+.client-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+    background-color: var(--bg-color);
+}
+
+/* Main Content Area */
+.main-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden; /* Prevents unwanted overflow */
+}
+
+/* Sidebar */
+.sidebar {
+    max-width: 25%;
+    min-width: 220px;
+    flex-shrink: 0; /* Prevents it from shrinking */
+    background-color: var(--sidebar-bg);
+    height: 100vh;
+    overflow-y: auto; /* Sidebar scrolls if content is too long */
+}
+
+/* Content Area */
+.content {
+    flex-grow: 1;
+    
+    background-color: var(--content-bg);
+    color: var(--text-color);
+    min-width: 0; /* Prevents unwanted horizontal overflow */
+    overflow-y: auto; /* Allows content to scroll if it overflows */
+    height: calc(100vh - var(--navbar-height)); /* Adjust height dynamically */
+}
+.tag {
+    display: inline-block;
+    background-color: #444; /* Dark background */
+    color: #b3d9b3; /* Light green text */
+    padding: 4px 8px;
+    border-radius: 12px; /* Rounded corners */
+    font-size: 0.85rem;
+    margin: 2px;
+    white-space: nowrap;
+  }
+  
+/* Theme Toggle Button */
+.theme-toggle {
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--togglebutton);
+    color: var(--text-color);
+    transition: background 0.25s ease-in-out, border 0.25s ease-in-out;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.theme-toggle:hover {
+    background-color: var(--hoverbgcolor);
+    border: 1px solid var(--togglehovercolor);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        max-width: 60px; /* Collapsed sidebar */
+        min-width: 60px;
+    }
+
+    .content {
+        padding: 1rem; /* Reduce padding on small screens */
+    }
+}

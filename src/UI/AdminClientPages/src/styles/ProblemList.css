@@ -1,0 +1,90 @@
+.problemList-title {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.panel {
+    background: var(--card-bg);
+    color: var(--text-color);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+}
+
+/* Problem List Item */
+.pli {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: var(--content-bg);
+    color: var(--text-color);
+    border: 1px solid white;
+    padding: 0.6em;
+    transition: 0.25s ease-in;
+    margin-bottom: 0.9em;
+    border-radius: 8px;
+    gap: 2em;
+    cursor: pointer;
+}
+
+.pli:hover {
+    background-color: var(--card-bg);
+    color: #ff3c00;
+}
+
+/* Problem Content */
+.problem-content {
+    flex: 1;
+}
+
+/* Difficulty Styling */
+.difficulty {
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+/* Tags */
+.tags {
+    font-size: 0.8em;
+    color: #bbb;
+}
+
+.tag {
+    margin-right: 5px;
+    background: #222;
+    padding: 3px 6px;
+    border-radius: 5px;
+}
+.top-right-btn {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.top-right-btn:hover {
+    background-color: #444;
+}
+.settings-btn {
+    background: transparent;
+
+    color: #ccc;
+    font-size: 1.2em;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: padding 0.2s;
+    border: none;
+}
+
+.settings-btn:hover {
+    padding-top: 5px;
+}

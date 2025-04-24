@@ -1,0 +1,51 @@
+.admin-form-container {
+  padding: 2rem;
+  background-color: var(--sidebar-bg);
+  color: var(--text-color);
+  border-radius: 10px;
+  max-width: 100%;
+}
+
+.form-title {
+  font-size: 1.6em;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.7em;
+  margin-bottom: 1em;
+  background-color: #111;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 6px;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #ff3c00;
+}
+
+.editor-container {
+  margin-top: 1em;
+  border: 1px solid #444;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.submit-btn {
+  background-color: #222;
+  color: white;
+  padding: 0.8em 1.5em;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+  background-color: #444;
+  color: #ff3c00;
+}

@@ -1,0 +1,81 @@
+/* === Sidebar Container === */
+.sidebar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 7%; /* Invisible hover zone */
+  z-index: 998;
+  padding-right: 2em;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  min-height: 100%;
+  min-width: 300px;
+  background-color: var(--sidebar-bg);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  
+  padding: 20px;
+  z-index: 999;
+  transition: left 0.5s ease;
+}
+
+
+/* Show sidebar on hover */
+.sidebar-wrapper:hover .sidebar,
+.sidebar:hover {
+  left: 0;
+}
+
+/* === Sidebar Header === */
+.sidebar_head {
+  font-size: 1.75em;
+  margin-bottom: 1.5em;
+  align-self: center;
+}
+
+
+
+/* === Navigation List === */
+.listgroup {
+  display: flex;
+  flex-direction: column;
+  padding-right: 2em;
+  gap: 20px;
+}
+
+/* === Individual Items === */
+.listgroupitem {
+  background-color: var(--sidebar-bg);
+  color: var(--text-color);
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  transition: 0.25s ease-in;
+}
+
+.listgroupitem a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* === Hover Effects === */
+.listgroupitem:hover {
+  background-color: var(--card-bg);
+  color: #ff3c00;
+  transform: scale(1.05);
+}
+.btn-wrapper
+{
+  padding-top: 5em;
+ justify-self: flex-end;
+}
+

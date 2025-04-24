@@ -1,0 +1,46 @@
+/* Default (Dark Mode) */
+:root {
+    --bg-color: #1a1a1a;
+    --text-color: #b3d9b3;
+    --sidebar-bg: #0a0a0a;
+    --content-bg: #121212;
+    --card-bg: #1b1b1b; 
+    --content: #181616;
+    --togglebutton:#0a0a0a;
+    --togglehovercolor:green;
+    --hoverbgcolor: #f9f9f9;
+  }
+  
+  .light-theme {
+    --bg-color: #f7fafc;                /* Very light, soft blue-tinted white */
+    --text-color: #232946;               /* Deep blue-black for crisp code readability */
+    --sidebar-bg: #e5eaf5;               /* Light pastel blue for sidebar, gentle contrast */
+    --content-bg: #f0f4f8;               /* Soft blue-grey for main content */
+    --card-bg: #ffffff;                  /* Pure white cards */
+    --content: #e3e9f7;                  /* Slightly deeper blue-grey for nested boxes */
+    --togglebutton: #b8c1ec;             /* Soft blue toggle */
+    --togglehovercolor: #3da9fc;         /* Vivid blue hover for interactivity */
+    --hoverbgcolor: #e0f2fe;             /* Subtle blue hover background */
+    --accent-color: #ff8906;             /* Vibrant orange for highlights/buttons */
+    --shadow: 0 2px 8px rgba(36, 107, 253, 0.06); /* Soft, modern shadow */
+  }
+  
+  /* Example usage */
+  .button-primary {
+    background: var(--accent-color);
+    color: #fff;
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    transition: background 0.2s;
+  }
+  .button-primary:hover {
+    background: var(--togglehovercolor);
+  }
+  
+  .card {
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    padding: 1.25rem;
+  }
+  

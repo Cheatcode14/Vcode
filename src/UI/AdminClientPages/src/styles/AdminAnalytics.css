@@ -1,0 +1,54 @@
+.admin-analytics-container {
+  padding: 2em;
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  color: var(--text-color);
+}
+
+.admin-title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 1em;
+  color: var(--text-color);
+}
+
+.admin-section {
+  background-color: var(--card-bg);
+  padding: 1.5em;
+  border-radius: 10px;
+  margin-bottom: 2em;
+  border: 1px solid var(--content, #222);
+  box-shadow: var(--shadow, 0 2px 8px rgba(0,0,0,0.06));
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1em;
+  background: var(--content-bg);
+  color: var(--text-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.admin-table th,
+.admin-table td {
+  border: 1px solid var(--content, #333);
+  padding: 0.75em;
+  text-align: left;
+}
+
+.admin-table th {
+  background-color: var(--content, var(--card-bg));
+  color: var(--accent-color, var(--togglehovercolor));
+  font-weight: 600;
+  
+}
+
+.admin-table tr {
+  transition: background 0.15s;
+}
+
+.admin-table tr:hover {
+  background-color: var(--hoverbgcolor, #232946);
+}
